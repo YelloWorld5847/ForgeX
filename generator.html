@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer mon serveur Discord – ForgeBot</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="background-glow"></div>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="url(#logo-gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 17L12 22L22 17" stroke="url(#logo-gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12L12 17L22 12" stroke="url(#logo-gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs><linearGradient id="logo-gradient" x1="2" y1="12" x2="22" y2="12" gradientUnits="userSpaceOnUse"><stop stop-color="#8A2BE2"/><stop offset="1" stop-color="#4A90E2"/></linearGradient></defs>
+                    </svg>
+                    ForgeBot
+                </a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero" style="padding:60px 0 40px 0; min-height:auto;">
+            <div class="container">
+                <div class="hero-content" style="max-width:600px; margin:0 auto;">
+                    <h1 class="animate-on-scroll">Décrivez votre serveur Discord</h1>
+                    <p class="animate-on-scroll">Expliquez en quelques mots le serveur que vous souhaitez générer avec ForgeBot.</p>
+                    <form id="generator-form" class="animate-on-scroll" style="margin-top:40px;">
+                        <textarea id="server-desc" rows="4" placeholder="Ex : Je veux un serveur gaming avec une catégorie jeux et un salon vocal..." style="width:100%;padding:18px;font-size:1.1rem;border-radius:10px;border:1px solid var(--border-color);background:var(--card-bg);color:var(--text-color);margin-bottom:20px;resize:none;"></textarea>
+                        <button type="submit" class="btn btn-primary btn-large" style="width:100%;">Générer</button>
+                    </form>
+                    <div id="result" style="display:none;margin-top:30px;text-align:center;">
+                        <div id="result-anim" style="background:var(--card-bg);padding:30px 20px;border-radius:12px;border:1px solid var(--border-color);opacity:0;transform:translateY(30px);transition:opacity 0.7s cubic-bezier(.4,0,.2,1),transform 0.7s cubic-bezier(.4,0,.2,1);">
+                            <span style="font-size:1.2rem;color:var(--secondary-color);">Votre chaîne ForgeBot :</span>
+                            <div style="font-size:2rem;font-weight:700;margin-top:10px;color:var(--heading-color);">FORGEBOT-CODE-1234</div>
+                            <a href="https://discord.com/oauth2/authorize?client_id=1413571425696088228&permissions=8&integration_type=0&scope=bot" class="btn btn-primary btn-large" style="margin-top:20px;display:inline-block;">Inviter ForgeBot</a>
+                            <div style="margin-top:30px;text-align:left;max-width:500px;margin-left:auto;margin-right:auto;background:rgba(74,144,226,0.08);padding:20px;border-radius:10px;">
+                                <h3 style="color:var(--heading-color);font-size:1.2rem;margin-bottom:10px;">Comment utiliser la chaîne&nbsp;?</h3>
+                                <ol style="color:var(--secondary-color);font-size:1rem;line-height:1.7;padding-left:20px;">
+                                    <li>Invitez ForgeBot sur votre serveur Discord avec le bouton ci-dessus.</li>
+                                    <li>Créez un serveur vide ou utilisez un serveur existant.</li>
+                                    <li>Dans Discord, tapez la commande <b>/setup_server token:FORGEBOT-CODE-1234</b> pour générer automatiquement la structure (catégories, salons, rôles, permissions...)</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-bottom" style="padding-top:30px;text-align:center;">
+                <p>&copy; 2025 ForgeBot. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script>
+    document.getElementById('generator-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var btn = this.querySelector('button');
+        btn.style.transform = 'scale(0.97)';
+        btn.style.boxShadow = '0 0 20px #8A2BE2';
+        setTimeout(function(){
+            btn.style.transform = '';
+            btn.style.boxShadow = '';
+        }, 300);
+        var result = document.getElementById('result');
+        var resultAnim = document.getElementById('result-anim');
+        result.style.display = 'block';
+        setTimeout(function(){
+            resultAnim.style.opacity = 1;
+            resultAnim.style.transform = 'translateY(0)';
+        }, 50);
+        result.scrollIntoView({behavior:'smooth'});
+    });
+    if (typeof feather !== 'undefined') { feather.replace(); }
+    </script>
+</body>
+</html>
