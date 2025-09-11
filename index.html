@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthflow AI - Intelligent Automation Platform</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- === SECURITY FIX: Added Subresource Integrity (SRI) to the external script === -->
+    <script 
+        src="https://unpkg.com/feather-icons" 
+        integrity="sha384-2TRCMh6P497NffV28BLIs5S2Hy22lK2rZOFw29ovD8D+OqI0oDRs7fcQn6AZnEV1" 
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+
+    <div class="background-glow"></div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="url(#logo-gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 17L12 22L22 17" stroke="url(#logo-gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12L12 17L22 12" stroke="url(#logo-gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs><linearGradient id="logo-gradient" x1="2" y1="12" x2="22" y2="12" gradientUnits="userSpaceOnUse"><stop stop-color="#8A2BE2"/><stop offset="1" stop-color="#4A90E2"/></linearGradient></defs>
+                    </svg>
+                    Synthflow
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#use-cases">Use Cases</a></li>
+                    <li><a href="#integrations">Integrations</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="#" class="btn btn-secondary">Log In</a>
+                    <a href="#" class="btn btn-primary">Get Started Free</a>
+                </div>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu">
+                    <i data-feather="menu"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="animate-on-scroll">The AI Co-pilot for Your Entire Business</h1>
+                    <p class="animate-on-scroll">Synthflow automates complex workflows, analyzes data in real-time, and empowers your team to focus on what truly matters. Integrate seamlessly, work smarter, and scale faster.</p>
+                    <div class="hero-buttons animate-on-scroll">
+                        <a href="#" class="btn btn-primary btn-large">Start Your 14-Day Free Trial</a>
+                        <a href="#" class="btn btn-secondary btn-large">Book a Demo</a>
+                    </div>
+                    <div class="hero-trust animate-on-scroll">
+                        <p>TRUSTED BY LEADING TEAMS AT</p>
+                        <div class="logos">
+                            <span>InnovateCo</span>
+                            <span>QuantumLeap</span>
+                            <span>ApexData</span>
+                            <span>FutureSys</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="animate-on-scroll">A Smarter Way to Work</h2>
+                    <p class="animate-on-scroll">Discover how Synthflow transforms your operations from end to end.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card animate-on-scroll"><div class="icon-wrapper"><i data-feather="zap"></i></div><h3>Automated Workflows</h3><p>Build and deploy complex automations in minutes with our no-code visual builder.</p></div>
+                    <div class="feature-card animate-on-scroll"><div class="icon-wrapper"><i data-feather="brain"></i></div><h3>AI-Powered Insights</h3><p>Our AI analyzes your data to predict trends, identify opportunities, and suggest optimizations.</p></div>
+                    <div class="feature-card animate-on-scroll"><div class="icon-wrapper"><i data-feather="share-2"></i></div><h3>Seamless Integration</h3><p>With 500+ connectors, Synthflow is the central nervous system for all your business tools.</p></div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Showcase Section -->
+        <section class="product-showcase">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="animate-on-scroll">See Synthflow in Action</h2>
+                    <p class="animate-on-scroll">Visualize your workflows coming to life in our intuitive, powerful dashboard.</p>
+                </div>
+                <div class="showcase-wrapper animate-on-scroll">
+                    <img src="https://placehold.co/1000x600/13122C/FFFFFF?text=Product+UI+Screenshot" alt="Synthflow Dashboard Interface" class="showcase-image">
+                    <div class="glow-point" style="top: 25%; left: 30%;"></div>
+                    <div class="glow-point" style="top: 55%; left: 65%;"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- How It Works Section -->
+        <section class="how-it-works">
+            <div class="container">
+                <div class="section-header"><h2 class="animate-on-scroll">Get Started in 3 Simple Steps</h2></div>
+                <div class="steps-container">
+                    <div class="step-card animate-on-scroll"><span>01</span><h3>Connect Your Tools</h3><p>Authorize your favorite apps with a single click. From CRMs to communication platforms.</p></div>
+                    <div class="step-connector"></div>
+                    <div class="step-card animate-on-scroll"><span>02</span><h3>Design Your Flow</h3><p>Use our intuitive drag-and-drop editor to map out your processes. No coding required.</p></div>
+                    <div class="step-connector"></div>
+                    <div class="step-card animate-on-scroll"><span>03</span><h3>Activate & Scale</h3><p>Launch your automation, monitor performance, and scale as your business grows.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section id="use-cases" class="use-cases">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="animate-on-scroll">Built for Every Team</h2>
+                    <p class="animate-on-scroll">Synthflow adapts to your unique challenges, no matter your department.</p>
+                </div>
+                <div class="use-cases-container animate-on-scroll">
+                    <div class="tabs">
+                        <button class="tab-button active" data-tab="sales">Sales</button>
+                        <button class="tab-button" data-tab="marketing">Marketing</button>
+                        <button class="tab-button" data-tab="operations">Operations</button>
+                    </div>
+                    <div class="tab-content">
+                        <div id="sales" class="tab-pane active">
+                            <h3>Automate Your Sales Pipeline</h3>
+                            <p>From lead enrichment to follow-up sequences, keep your sales team focused on closing deals, not on manual data entry.</p>
+                            <ul>
+                                <li><i data-feather="check-circle"></i> Auto-assign leads to reps</li>
+                                <li><i data-feather="check-circle"></i> Enrich CRM data with social profiles</li>
+                                <li><i data-feather="check-circle"></i> Trigger follow-up emails based on activity</li>
+                            </ul>
+                        </div>
+                        <div id="marketing" class="tab-pane">
+                            <h3>Supercharge Your Campaigns</h3>
+                            <p>Sync data across your marketing stack, personalize customer journeys, and measure ROI with powerful, automated workflows.</p>
+                             <ul>
+                                <li><i data-feather="check-circle"></i> Personalize email campaigns at scale</li>
+                                <li><i data-feather="check-circle"></i> Sync leads from social ads to your CRM</li>
+                                <li><i data-feather="check-circle"></i> Automate performance reporting</li>
+                            </ul>
+                        </div>
+                        <div id="operations" class="tab-pane">
+                            <h3>Streamline Business Processes</h3>
+                            <p>Eliminate bottlenecks and improve efficiency by automating routine tasks, approvals, and data synchronization across departments.</p>
+                             <ul>
+                                <li><i data-feather="check-circle"></i> Automate employee onboarding</li>
+                                <li><i data-feather="check-circle"></i> Manage approvals and procurement</li>
+                                <li><i data-feather="check-circle"></i> Sync inventory across platforms</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Integrations Section -->
+        <section id="integrations" class="integrations">
+            <div class="container">
+                 <div class="section-header">
+                    <h2 class="animate-on-scroll">Connect Your Entire Stack</h2>
+                    <p class="animate-on-scroll">Synthflow works with the tools you already love. Here are just a few.</p>
+                </div>
+                <div class="logo-wall animate-on-scroll">
+                    <div class="logo-item"><img src="https://placehold.co/80x80/ffffff/0d0c22?text=Logo1" alt="Tool Logo"></div>
+                    <div class="logo-item"><img src="https://placehold.co/80x80/ffffff/0d0c22?text=Logo2" alt="Tool Logo"></div>
+                    <div class="logo-item"><img src="https://placehold.co/80x80/ffffff/0d0c22?text=Logo3" alt="Tool Logo"></div>
+                    <div class="logo-item"><img src="https://placehold.co/80x80/ffffff/0d0c22?text=Logo4" alt="Tool Logo"></div>
+                    <div class="logo-item"><img src="https://placehold.co/80x80/ffffff/0d0c22?text=Logo5" alt="Tool Logo"></div>
+                    <div class="logo-item"><img src="https://placehold.co/80x80/ffffff/0d0c22?text=Logo6" alt="Tool Logo"></div>
+                    <div class="logo-item"><img src="https://placehold.co/80x80/ffffff/0d0c22?text=Logo7" alt="Tool Logo"></div>
+                    <div class="logo-item"><img src="https://placehold.co/80x80/ffffff/0d0c22?text=Logo8" alt="Tool Logo"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="animate-on-scroll">Don't Just Take Our Word For It</h2>
+                    <p class="animate-on-scroll">See how innovators are transforming their businesses with Synthflow.</p>
+                </div>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card animate-on-scroll">
+                        <p class="quote">"Synthflow has become the backbone of our operations. We've automated over 80% of our manual tasks, saving us 20+ hours a week."</p>
+                        <div class="author">
+                            <img src="https://placehold.co/50x50/8A2BE2/FFFFFF?text=A" alt="Avatar">
+                            <div>
+                                <h4>Sarah Johnson</h4>
+                                <span>COO at InnovateCo</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card animate-on-scroll">
+                        <p class="quote">"The AI insights are a game-changer. We're now making proactive decisions based on data, not guesswork. Our campaign ROI is up 35%."</p>
+                        <div class="author">
+                             <img src="https://placehold.co/50x50/4A90E2/FFFFFF?text=M" alt="Avatar">
+                            <div>
+                                <h4>Mark Chen</h4>
+                                <span>Head of Marketing at QuantumLeap</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="animate-on-scroll">Flexible Pricing for Teams of All Sizes</h2>
+                    <p class="animate-on-scroll">Choose the plan that's right for you. Cancel anytime.</p>
+                </div>
+                <div class="pricing-grid">
+                    <div class="pricing-card animate-on-scroll">
+                        <h3>Starter</h3><p class="price-desc">For individuals and small teams getting started.</p><div class="price"><sup>$</sup>29<span>/mo</span></div>
+                        <ul><li><i data-feather="check"></i> 10 AI Agents</li><li><i data-feather="check"></i> 5,000 Tasks/mo</li><li><i data-feather="check"></i> 100+ Core Integrations</li><li><i data-feather="check"></i> Email & Chat Support</li></ul><a href="#" class="btn btn-secondary">Choose Starter</a>
+                    </div>
+                    <div class="pricing-card popular animate-on-scroll">
+                        <span class="popular-badge">Most Popular</span>
+                        <h3>Growth</h3><p class="price-desc">For growing businesses that need more power.</p><div class="price"><sup>$</sup>99<span>/mo</span></div>
+                        <ul><li><i data-feather="check"></i> 50 AI Agents</li><li><i data-feather="check"></i> 25,000 Tasks/mo</li><li><i data-feather="check"></i> All 500+ Integrations</li><li><i data-feather="check"></i> Priority Support</li><li><i data-feather="check"></i> API Access</li></ul><a href="#" class="btn btn-primary">Choose Growth</a>
+                    </div>
+                    <div class="pricing-card animate-on-scroll">
+                        <h3>Enterprise</h3><p class="price-desc">For large organizations with custom needs.</p><div class="price">Custom</div>
+                        <ul><li><i data-feather="check"></i> Unlimited AI Agents</li><li><i data-feather="check"></i> Custom Task Volume</li><li><i data-feather="check"></i> SSO & Advanced Security</li><li><i data-feather="check"></i> Dedicated Account Manager</li></ul><a href="#" class="btn btn-secondary">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="animate-on-scroll">Frequently Asked Questions</h2>
+                </div>
+                <div class="faq-container animate-on-scroll">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What kind of tools can I integrate with Synthflow?</span>
+                            <i data-feather="chevron-down" class="faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>You can integrate with over 500 popular apps, including CRMs like Salesforce, communication tools like Slack, marketing platforms like Mailchimp, and many more. If we don't have a native integration, you can use our robust API to connect any tool.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                           <span>Is my data secure with Synthflow?</span>
+                           <i data-feather="chevron-down" class="faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Absolutely. We use enterprise-grade encryption for data at rest and in transit. Synthflow is SOC 2 Type II compliant, and we offer advanced security features like SSO and role-based access control for our Enterprise customers.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                           <span>Can I change my plan later?</span>
+                           <i data-feather="chevron-down" class="faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, you can upgrade, downgrade, or cancel your plan at any time directly from your account dashboard. Changes will be prorated and reflected in your next billing cycle.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="resources">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="animate-on-scroll">Learn & Grow with Synthflow</h2>
+                    <p class="animate-on-scroll">Explore our latest insights on AI, automation, and the future of work.</p>
+                </div>
+                <div class="resources-grid">
+                    <a href="#" class="resource-card animate-on-scroll">
+                        <img src="https://placehold.co/400x250/191835/FFFFFF?text=Blog+Image" alt="Article Thumbnail">
+                        <div class="resource-content">
+                            <span>Automation Tips</span>
+                            <h3>5 Repetitive Tasks You Can Automate in Under 10 Minutes</h3>
+                            <p>Discover quick wins to free up your team's time and boost productivity instantly.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="resource-card animate-on-scroll">
+                        <img src="https://placehold.co/400x250/191835/FFFFFF?text=Blog+Image" alt="Article Thumbnail">
+                         <div class="resource-content">
+                            <span>AI Insights</span>
+                            <h3>How Generative AI is Changing Business Intelligence</h3>
+                            <p>Go beyond dashboards. Learn how AI can provide predictive insights for your business.</p>
+                        </div>
+                    </a>
+                     <a href="#" class="resource-card animate-on-scroll">
+                        <img src="https://placehold.co/400x250/191835/FFFFFF?text=Blog+Image" alt="Article Thumbnail">
+                         <div class="resource-content">
+                            <span>Case Study</span>
+                            <h3>How InnovateCo Scaled Operations with Synthflow</h3>
+                            <p>A deep dive into the strategies and workflows that led to a 4x increase in efficiency.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta">
+            <div class="container">
+                <div class="cta-content animate-on-scroll">
+                    <h2>Ready to Revolutionize Your Business?</h2>
+                    <p>Join thousands of innovative companies building the future of work with Synthflow.</p>
+                    <a href="#" class="btn btn-primary btn-large">Start Your Free Trial Now</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><a href="#" class="logo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="url(#logo-gradient-footer)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 17L12 22L22 17" stroke="url(#logo-gradient-footer)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12L12 17L22 12" stroke="url(#logo-gradient-footer)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="logo-gradient-footer" x1="2" y1="12" x2="22" y2="12" gradientUnits="userSpaceOnUse"><stop stop-color="#8A2BE2"/><stop offset="1" stop-color="#4A90E2"/></linearGradient></defs></svg>Synthflow</a><p>The Intelligent Automation Platform.</p></div>
+                <div class="footer-col">
+                    <h4>Product</h4><ul><li><a href="#features">Features</a></li><li><a href="#use-cases">Use Cases</a></li><li><a href="#integrations">Integrations</a></li><li><a href="#pricing">Pricing</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4><ul><li><a href="#">About Us</a></li><li><a href="#">Careers</a></li><li><a href="#">Blog</a></li><li><a href="#">Contact Us</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4><ul><li><a href="#">Documentation</a></li><li><a href="#">API Reference</a></li><li><a href="#">Security</a></li><li><a href="#">System Status</a></li></ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Synthflow. All rights reserved. Design by WPDean.</p>
+                <div class="social-links"><a href="#" aria-label="Twitter"><i data-feather="twitter"></i></a><a href="#" aria-label="LinkedIn"><i data-feather="linkedin"></i></a><a href="#" aria-label="GitHub"><i data-feather="github"></i></a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
