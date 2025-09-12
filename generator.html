@@ -37,7 +37,12 @@
                     <div id="result" style="display:none;margin-top:30px;text-align:center;">
                         <div id="result-anim" style="background:var(--card-bg);padding:30px 20px;border-radius:12px;border:1px solid var(--border-color);opacity:0;transform:translateY(30px);transition:opacity 0.7s cubic-bezier(.4,0,.2,1),transform 0.7s cubic-bezier(.4,0,.2,1);">
                             <span style="font-size:1.2rem;color:var(--secondary-color);">Votre chaîne ForgeBot :</span>
-                            <div style="font-size:2rem;font-weight:700;margin-top:10px;color:var(--heading-color);">FORGEBOT-CODE-1234</div>
+                            <div>
+                                <input value="FORGEBOT-CODE-1234" disabled type="text" style="width:80%;padding:18px;font-size:1.1rem;border-radius:10px;border:1px solid var(--border-color);background:var(--card-bg);color:var(--text-color);margin-bottom:20px;resize:none;" id="forgebot-code"></input>
+                                <button onclick="copyForgeBotCode()" id="copy-btn" class="copy-btn" style="border:none;padding:12px;border-radius:8px;cursor:pointer;vertical-align:middle;border-radius:10px;border:1px solid var(--border-color);">
+                                    <img src="assets/img/copy.png" alt="Copier" style="width:20px;height:20px;">
+                                </button>
+                            </div>
                             <a href="https://discord.com/oauth2/authorize?client_id=1413571425696088228&permissions=8&integration_type=0&scope=bot" class="btn btn-primary btn-large" style="margin-top:20px;display:inline-block;">Inviter ForgeBot</a>
                             <div style="margin-top:30px;text-align:left;max-width:500px;margin-left:auto;margin-right:auto;background:rgba(74,144,226,0.08);padding:20px;border-radius:10px;">
                                 <h3 style="color:var(--heading-color);font-size:1.2rem;margin-bottom:10px;">Comment utiliser la chaîne&nbsp;?</h3>
@@ -57,31 +62,14 @@
         <div class="container">
             <div class="footer-bottom" style="padding-top:30px;text-align:center;">
                 <p>&copy; 2025 ForgeBot. Tous droits réservés.</p>
+                <a href="https://www.flaticon.com/fr/icones-gratuites/fichiers-et-dossiers" title="fichiers et dossiers icônes">Fichiers et dossiers icônes créées par Rizki Ahmad Fauzi - Flaticon</a>
             </div>
         </div>
     </footer>
     <script src="assets/js/script.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/order.js"></script>
     <script>
-    document.getElementById('generator-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        var btn = this.querySelector('button');
-        btn.style.transform = 'scale(0.97)';
-        btn.style.boxShadow = '0 0 20px #8A2BE2';
-        setTimeout(function(){
-            btn.style.transform = '';
-            btn.style.boxShadow = '';
-        }, 300);
-        var result = document.getElementById('result');
-        var resultAnim = document.getElementById('result-anim');
-        result.style.display = 'block';
-        setTimeout(function(){
-            resultAnim.style.opacity = 1;
-            resultAnim.style.transform = 'translateY(0)';
-        }, 50);
-        result.scrollIntoView({behavior:'smooth'});
-    });
-    if (typeof feather !== 'undefined') { feather.replace(); }
+    
     </script>
 </body>
 </html>
