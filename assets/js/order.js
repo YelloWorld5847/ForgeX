@@ -11,6 +11,7 @@ document.getElementById('generator-form').addEventListener('submit', async funct
     });
     if (!resp.ok) throw new Error("Impossible de générer le token");
 
+    console.log("Token généré et stocké:", token);
     const code = btoa(JSON.stringify([desc, token]));
     document.getElementById("forgebot-code").value = code;
 
