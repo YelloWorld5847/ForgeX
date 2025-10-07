@@ -21,7 +21,18 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Méthode non autorisée" });
   }
 
-  const { token, desc } = req.body;
+  let token, desc;
+
+  try {
+    if (typeof req.json === "function") {
+      ({ token, desc } = await req.json());
+    } else {
+      ({ token, desc } = req.body);
+    }
+  } catch {
+    return res.status(400).json({ error: "Corps JSON invalide" });
+  }
+
   if (!token || !desc) {
     return res.status(400).json({ error: "Token ou description manquant" });
   }
