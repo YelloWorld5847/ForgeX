@@ -1,3 +1,5 @@
+import crypto from "crypto";
+
 document.getElementById('generator-form').addEventListener('submit', async function (e) {
     e.preventDefault();
     const desc = document.getElementById("server-desc").value;
@@ -12,8 +14,9 @@ document.getElementById('generator-form').addEventListener('submit', async funct
     if (!resp.ok) throw new Error("Impossible de générer le token");
 
     console.log("Token généré et stocké:", token);
-    const code = btoa(JSON.stringify([desc, token]));
-    document.getElementById("forgebot-code").value = code;
+    const code = JSON.stringify([desc, token]);
+    const encrypted_code = CryptoJS.AES.encrypt(code, process.env.PASS_TOKEN);
+    document.getElementById("forgebot-code").value = encrypted_code;
 
     // Effets visuels
     const btn = this.querySelector('button');
