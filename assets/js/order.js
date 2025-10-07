@@ -7,14 +7,17 @@ document.getElementById('generator-form').addEventListener('submit', async funct
     const resp = await fetch("/api/setToken", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ token })
+        body: JSON.stringify({ token, desc })
     });
-    if (!resp.ok) throw new Error("Impossible de générer le token");
+    if (!resp.ok) {
+        console.error(await resp.text());
+        throw new Error("Impossible de générer le token");
+    }
+
+    const { encrypted } = await resp.json();
 
     console.log("Token généré et stocké:", token);
-    const code = JSON.stringify([desc, token]);
-    const encrypted_code = CryptoJS.AES.encrypt(code, process.env.PASS_TOKEN);
-    document.getElementById("forgebot-code").value = encrypted_code;
+    document.getElementById("forgebot-code").value = encrypted;
 
     // Effets visuels
     const btn = this.querySelector('button');
