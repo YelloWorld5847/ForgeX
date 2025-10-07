@@ -1,5 +1,3 @@
-import crypto from "crypto";
-
 document.getElementById('generator-form').addEventListener('submit', async function (e) {
     e.preventDefault();
     const desc = document.getElementById("server-desc").value;
