@@ -1,12 +1,12 @@
+// Updated API route to verify Stripe payment and mark a client as paid
+// This version also checks the associated PaymentIntent to ensure that
+// delayed payment methods are correctly verified.
+
 export default async function handler(req, res) {
-  // Only allow POST requests for security reasons
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Méthode non autorisée" });
   }
-
   let sessionId, clientId;
-  // Parse the incoming JSON body. In Next.js API routes, req.json()
-  // may not exist, so fall back to req.body if necessary.
   try {
     if (typeof req.json === "function") {
       ({ sessionId, clientId } = await req.json());
@@ -16,35 +16,48 @@ export default async function handler(req, res) {
   } catch {
     return res.status(400).json({ error: "Corps JSON invalide" });
   }
-
-  // Validate required parameters
   if (!sessionId || !clientId) {
     return res.status(400).json({ error: "sessionId ou clientId manquant" });
   }
-
-  // Retrieve secret environment variables
   const { STRIPE_SECRET_KEY, UPSTASH_URL, UPSTASH_TOKEN } = process.env;
   if (!STRIPE_SECRET_KEY) {
     return res.status(500).json({ error: "Clé Stripe manquante" });
   }
-
   try {
-    // Fetch the checkout session details directly from Stripe's API.
-    // Using fetch avoids the need for an external dependency like the
-    // stripe-node library, which isn't available in this repository.
-    const stripeResp = await fetch(
+    // Fetch the Checkout Session
+    const sessionResp = await fetch(
       `https://api.stripe.com/v1/checkout/sessions/${sessionId}`,
       {
-        headers: {
-          Authorization: `Bearer ${STRIPE_SECRET_KEY}`,
-        },
+        headers: { Authorization: `Bearer ${STRIPE_SECRET_KEY}` },
       }
     );
-    const session = await stripeResp.json();
-    // Check if the session has succeeded
-    const isPaid = session && session.payment_status === "paid";
+    const session = await sessionResp.json();
+    let isPaid = false;
+    // Primary check: use the payment_status field on the session
+    if (session && session.payment_status === "paid") {
+      isPaid = true;
+    }
+    // Secondary check: if still unpaid, fetch the PaymentIntent and check its status
+    if (!isPaid && session && session.payment_intent) {
+      try {
+        const intentResp = await fetch(
+          `https://api.stripe.com/v1/payment_intents/${session.payment_intent}`,
+          {
+            headers: { Authorization: `Bearer ${STRIPE_SECRET_KEY}` },
+          }
+        );
+        const intent = await intentResp.json();
+        if (intent && intent.status === "succeeded") {
+          isPaid = true;
+        }
+      } catch (err) {
+        console.error(
+          "Erreur lors de la récupération du PaymentIntent :",
+          err
+        );
+      }
+    }
     if (isPaid) {
-      // If Upstash credentials are available, mark this client as paid
       if (UPSTASH_URL && UPSTASH_TOKEN) {
         try {
           const url = new URL(UPSTASH_URL);
@@ -57,13 +70,11 @@ export default async function handler(req, res) {
             },
           });
         } catch (err) {
-          // Log errors but don't block the response if Upstash fails
           console.error("Erreur lors de la mise à jour Upstash :", err);
         }
       }
       return res.status(200).json({ paid: true });
     }
-    // Session exists but isn't paid
     return res.status(200).json({ paid: false });
   } catch (error) {
     console.error("Erreur de vérification du paiement :", error);
