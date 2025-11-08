@@ -1,8 +1,49 @@
+(async () => {
+    // Ensure a persistent clientId is available for payment tracking
+    let clientId = localStorage.getItem('clientId');
+    if (!clientId) {
+        clientId = crypto.randomUUID();
+        localStorage.setItem('clientId', clientId);
+    }
+    // Restore pending description if returning from payment
+    const pendingDesc = sessionStorage.getItem('pendingDesc');
+    if (pendingDesc) {
+        const textarea = document.getElementById('server-desc');
+        if (textarea) {
+            textarea.value = pendingDesc;
+        }
+        sessionStorage.removeItem('pendingDesc');
+    }
+})();
+
+// Update this URL with the production payment link when deploying
+const PAYMENT_LINK_URL = 'https://buy.stripe.com/test_cNi4gz5EK9Agevn9Ii9EI00';
+
 document.getElementById('generator-form').addEventListener('submit', async function (e) {
     e.preventDefault();
     const desc = document.getElementById("server-desc").value;
+    const clientId = localStorage.getItem('clientId');
 
-    // Appel à l'API route pour générer et stocker le token
+    // Check if the current client has paid
+    let paid = false;
+    try {
+        const checkResp = await fetch('/api/checkPaid?clientId=' + encodeURIComponent(clientId));
+        if (checkResp.ok) {
+            const { paid: resultPaid } = await checkResp.json();
+            paid = resultPaid;
+        }
+    } catch (err) {
+        console.error('Erreur lors de la vérification de paiement', err);
+    }
+
+    // If not paid, redirect to the payment page and store description
+    if (!paid) {
+        sessionStorage.setItem('pendingDesc', desc);
+        window.location.href = PAYMENT_LINK_URL;
+        return;
+    }
+
+    // Generate and store the token via the existing API
     const token = crypto.randomUUID();
     const resp = await fetch("/api/setToken", {
         method: "POST",

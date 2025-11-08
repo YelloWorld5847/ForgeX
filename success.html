@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement confirmé – ForgeBot</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="background-glow"></div>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="/assets/img/Logo_ForgeBot_PNG.png" alt="Logo ForgeBot" class="logo-img">
+                    ForgeBot
+                </a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero" style="padding:60px 0 40px 0; min-height:auto;">
+            <div class="container">
+                <div class="hero-content" style="max-width:600px; margin:0 auto; text-align:center;">
+                    <h1>Vérification du paiement…</h1>
+                    <p id="status-message">Nous vérifions votre paiement, merci de patienter.</p>
+                    <div id="next-actions" style="display:none;margin-top:20px;">
+                        <a href="generator.html" class="btn btn-primary btn-large">Retourner à la génération</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-bottom" style="padding-top:30px;text-align:center;">
+                <p>&copy; 2025 ForgeBot. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+    // Immediately invoked function to verify payment on page load
+    (async () => {
+        const params = new URLSearchParams(window.location.search);
+        const sessionId = params.get('session_id');
+        const clientId = localStorage.getItem('clientId');
+        const statusEl = document.getElementById('status-message');
+        try {
+            const resp = await fetch('/api/verifyPayment', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ sessionId, clientId })
+            });
+            const result = await resp.json();
+            if (result.paid) {
+                // Mark as paid locally for convenience
+                localStorage.setItem('paid', 'true');
+                statusEl.textContent = 'Paiement confirmé ! Vous pouvez maintenant générer votre serveur Discord.';
+                document.getElementById('next-actions').style.display = 'block';
+            } else {
+                statusEl.textContent = 'Paiement non confirmé. Si vous pensez que ceci est une erreur, veuillez contacter le support.';
+            }
+        } catch (error) {
+            console.error('Erreur lors de la vérification :', error);
+            statusEl.textContent = 'Une erreur est survenue lors de la vérification du paiement.';
+        }
+    })();
+    </script>
+</body>
+</html>
