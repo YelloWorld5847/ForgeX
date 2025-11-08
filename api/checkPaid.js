@@ -1,3 +1,9 @@
+// new API route to check if a client has already paid
+//
+// Given a clientId in the query string, this function queries
+// Upstash to determine whether a corresponding `paid:<clientId>` key
+// exists. If the key has a value, we consider the client paid.
+
 export default async function handler(req, res) {
   // Extract clientId from query parameters (GET) or body (POST)
   const clientId = req.query?.clientId || req.body?.clientId;
@@ -19,8 +25,26 @@ export default async function handler(req, res) {
       },
     });
     const data = await resp.json();
-    // Upstash returns null for missing keys
-    const paid = data && data.result !== null && data.result !== undefined;
+    // Upstash returns null for missing keys on `paid:` keys
+    const hasPaid = data && data.result !== null && data.result !== undefined;
+
+    // Also check if this client has already consumed their generation
+    let hasUsed = false;
+    try {
+      const usedUrl = new URL(UPSTASH_URL);
+      usedUrl.pathname = `/get/used:${clientId}`;
+      const usedResp = await fetch(usedUrl.href, {
+        headers: {
+          Authorization: `Bearer ${UPSTASH_TOKEN}`,
+        },
+      });
+      const usedData = await usedResp.json();
+      hasUsed = usedData && usedData.result !== null && usedData.result !== undefined;
+    } catch (err) {
+      console.error("Erreur lors de la vérification du statut used :", err);
+    }
+
+    const paid = hasPaid && !hasUsed;
     return res.status(200).json({ paid });
   } catch (error) {
     console.error("Erreur lors de la vérification du paiement :", error);
