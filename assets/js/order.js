@@ -38,16 +38,24 @@ document.getElementById('generator-form').addEventListener('submit', async funct
     const desc = document.getElementById("server-desc").value;
     const clientId = localStorage.getItem('clientId');
 
-    // Check if the current client has paid
+    // Determine if this client has already paid.
+    // We support two mechanisms:
+    //  - A flag in localStorage set after returning from the success page (paid == 'true').
+    //  - A server-side check via /api/checkPaid to verify Upstash state.
     let paid = false;
-    try {
-        const checkResp = await fetch('/api/checkPaid?clientId=' + encodeURIComponent(clientId));
-        if (checkResp.ok) {
-            const { paid: resultPaid } = await checkResp.json();
-            paid = resultPaid;
+    const localPaidFlag = localStorage.getItem('paid');
+    if (localPaidFlag === 'true') {
+        paid = true;
+    } else {
+        try {
+            const checkResp = await fetch('/api/checkPaid?clientId=' + encodeURIComponent(clientId));
+            if (checkResp.ok) {
+                const { paid: resultPaid } = await checkResp.json();
+                paid = resultPaid;
+            }
+        } catch (err) {
+            console.error('Erreur lors de la vérification de paiement', err);
         }
-    } catch (err) {
-        console.error('Erreur lors de la vérification de paiement', err);
     }
 
     // If not paid, redirect to the payment page and store description
@@ -84,6 +92,10 @@ document.getElementById('generator-form').addEventListener('submit', async funct
     } catch (err) {
         console.error('Erreur lors du marquage utilisé :', err);
     }
+
+    // Une fois la génération effectuée, on peut retirer le flag local "paid"
+    // afin que l'utilisateur doive payer à nouveau s'il souhaite générer un autre serveur.
+    localStorage.removeItem('paid');
 
     // Effets visuels
     const btn = this.querySelector('button');
