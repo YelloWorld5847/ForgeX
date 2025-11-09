@@ -1,17 +1,3 @@
-// Modified generator page script to enforce payment before token generation
-//
-// This script now performs several actions:
-//  1. On page load, generate or retrieve a unique clientId and store it in
-//     localStorage. This ID is used server-side to track whether the user
-//     has completed the payment.
-//  2. Restore a pending description from sessionStorage when returning
-//     from the payment page. This allows the user to pick up where
-//     they left off after paying.
-//  3. When the form is submitted, check the user's payment status via
-//     the `/api/checkPaid` endpoint. If the user hasn't paid, the script
-//     saves the current description and redirects them to Stripe using
-//     the PAYMENT_LINK_URL. Otherwise, it generates the token as before.
-
 (async () => {
     // Ensure a persistent clientId is available for payment tracking
     let clientId = localStorage.getItem('clientId');

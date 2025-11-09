@@ -3,31 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentions légales - ForgeBot</title>
+    <title>Mentions légales – ForgeBot</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"
+        integrity="sha384-2TRCMh6P497NffV28BLIs5S2Hy22lK2rZOFw29ovD8D+OqI0oDRs7fcQn6AZnEV1" crossorigin="anonymous">
+    </script>
+    <style>
+        .legal-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        .legal-content h2 {
+            color: #fff;
+            font-size: 1.75rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(138, 43, 226, 0.2);
+        }
+        .legal-content h2:first-of-type {
+            margin-top: 0;
+            border-top: none;
+            padding-top: 0;
+        }
+        .legal-content p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .legal-content strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        .legal-content a {
+            color: #8A2BE2;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .legal-content a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
+
+    <div class="background-glow"></div>
+
     <header>
         <div class="container">
-            <h1>Mentions légales</h1>
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="/assets/img/Logo_ForgeBot_PNG.png" alt="Logo ForgeBot" class="logo-img">
+                    ForgeBot
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html#features">Fonctionnalités</a></li>
+                    <li><a href="index.html#how-it-works">Comment ça marche</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="index.html#pricing">Tarifs</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="generator.html" class="btn btn-primary">Créer mon serveur</a>
+                    <a href="https://discord.com/oauth2/authorize?client_id=1413571425696088228&permissions=8&integration_type=0&scope=bot"
+                        class="btn btn-secondary" target="_blank">Inviter ForgeBot</a>
+                </div>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu">
+                    <i data-feather="menu"></i>
+                </button>
+            </nav>
         </div>
     </header>
+
     <main>
-        <div class="container">
-            <h2>Éditeur du site</h2>
-            <p>ForgeBot est édité par <strong>YelloWorld</strong>.</p>
+        <section class="hero" style="padding: 120px 0 40px;">
+            <div class="container">
+                <div class="hero-content" style="max-width: 900px; margin: 0 auto; text-align: center;">
+                    <h1 class="animate-on-scroll">Mentions légales</h1>
+                    <p class="animate-on-scroll" style="font-size: 1.125rem;">
+                        Informations légales concernant ForgeBot
+                    </p>
+                </div>
+            </div>
+        </section>
 
-            <h2>Hébergement</h2>
-            <p>Ce site est hébergé par Vercel.</p>
+        <section>
+            <div class="container">
+                <div class="legal-content animate-on-scroll">
+                    <h2>Éditeur du site</h2>
+                    <p>ForgeBot est édité par <strong>YelloWorld</strong>.</p>
+                    <p>Pour toute question ou demande d'information, vous pouvez nous contacter à l'adresse suivante&nbsp;: <a href="mailto:forgebot.app@gmail.com">forgebot.app@gmail.com</a></p>
 
-            <h2>Données personnelles</h2>
-            <p>Nous ne collectons pas de données personnelles autres que celles nécessaires au bon fonctionnement du service.</p>
-        </div>
+                    <h2>Hébergement</h2>
+                    <p>Ce site est hébergé par <strong>Vercel</strong>.</p>
+
+                    <h2>Données personnelles</h2>
+                    <p>Nous ne collectons pas de données personnelles autres que celles nécessaires au bon fonctionnement du service.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <div class="container">
+                <div class="cta-content animate-on-scroll">
+                    <h2>Prêt à créer votre serveur Discord&nbsp;?</h2>
+                    <p>Essayez ForgeBot et lancez votre communauté en quelques secondes.</p>
+                    <a href="generator.html" class="btn btn-primary btn-large">Créer mon serveur</a>
+                </div>
+            </div>
+        </section>
     </main>
+
     <footer>
         <div class="container">
-            <p>&copy; 2025 ForgeBot. Tous droits réservés.</p>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="url(#logo-gradient-footer)" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M2 17L12 22L22 17" stroke="url(#logo-gradient-footer)" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M2 12L12 17L22 12" stroke="url(#logo-gradient-footer)" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <defs>
+                                <linearGradient id="logo-gradient-footer" x1="2" y1="12" x2="22" y2="12"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#8A2BE2" />
+                                    <stop offset="1" stop-color="#4A90E2" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        ForgeBot
+                    </a>
+                    <p>Le bot Discord qui crée votre serveur avec l'IA.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Produit</h4>
+                    <ul>
+                        <li><a href="index.html#features">Fonctionnalités</a></li>
+                        <li><a href="index.html#how-it-works">Comment ça marche</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
+                        <li><a href="index.html#pricing">Tarifs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>À propos</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="mentions.html">Mentions légales</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ForgeBot. Tous droits réservés.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter"><i data-feather="twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i data-feather="linkedin"></i></a>
+                    <a href="#" aria-label="GitHub"><i data-feather="github"></i></a>
+                </div>
+            </div>
         </div>
     </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        feather.replace();
+    </script>
 </body>
 </html>

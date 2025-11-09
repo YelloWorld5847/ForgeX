@@ -5,24 +5,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact – ForgeBot</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"
+        integrity="sha384-2TRCMh6P497NffV28BLIs5S2Hy22lK2rZOFw29ovD8D+OqI0oDRs7fcQn6AZnEV1" crossorigin="anonymous">
+    </script>
 </head>
 <body>
+
+    <div class="background-glow"></div>
+
     <header>
         <div class="container">
-            <h1>Contact</h1>
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="/assets/img/Logo_ForgeBot_PNG.png" alt="Logo ForgeBot" class="logo-img">
+                    ForgeBot
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html#features">Fonctionnalités</a></li>
+                    <li><a href="index.html#how-it-works">Comment ça marche</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="index.html#pricing">Tarifs</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="generator.html" class="btn btn-primary">Créer mon serveur</a>
+                    <a href="https://discord.com/oauth2/authorize?client_id=1413571425696088228&permissions=8&integration_type=0&scope=bot"
+                        class="btn btn-secondary" target="_blank">Inviter ForgeBot</a>
+                </div>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu">
+                    <i data-feather="menu"></i>
+                </button>
+            </nav>
         </div>
     </header>
+
     <main>
-        <div class="container">
-            <p>Vous pouvez nous contacter à l’adresse suivante&nbsp;:</p>
-            <p><strong>contact@forgebot.app</strong></p>
-            <p>Ou rejoignez notre serveur Discord pour obtenir de l’aide et poser vos questions.</p>
-        </div>
+        <section class="hero" style="padding: 120px 0 80px;">
+            <div class="container">
+                <div class="hero-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <h1 class="animate-on-scroll">Contactez-nous</h1>
+                    <p class="animate-on-scroll" style="font-size: 1.125rem; margin-bottom: 60px;">
+                        Une question, une suggestion ou besoin d'aide&nbsp;? Nous sommes là pour vous accompagner.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 40px 0 120px;">
+            <div class="container">
+                <div class="features-grid" style="max-width: 900px; margin: 0 auto;">
+                    <div class="feature-card animate-on-scroll" style="text-align: center;">
+                        <div class="icon-wrapper"><i data-feather="mail"></i></div>
+                        <h3>Email</h3>
+                        <p style="margin-bottom: 1rem;">Pour toute question ou demande d'assistance</p>
+                        <a href="mailto:forgebot.app@gmail.com" style="color: #8A2BE2; font-weight: 600; text-decoration: none;">
+                            forgebot.app@gmail.com
+                        </a>
+                    </div>
+                    
+                    <div class="feature-card animate-on-scroll" style="text-align: center;">
+                        <div class="icon-wrapper">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                            </svg>
+                        </div>
+                        <h3>Discord</h3>
+                        <p style="margin-bottom: 1rem;">Rejoignez notre communauté pour obtenir de l'aide rapidement</p>
+                        <a href="https://discord.gg/qUMtTdNtMA" target="_blank" rel="noopener noreferrer" 
+                           class="btn btn-secondary" style="display: inline-block;">
+                            Rejoindre le serveur
+                        </a>
+                    </div>
+
+                    <div class="feature-card animate-on-scroll" style="text-align: center;">
+                        <div class="icon-wrapper"><i data-feather="clock"></i></div>
+                        <h3>Temps de réponse</h3>
+                        <p>Nous répondons généralement sous 24-48 heures les jours ouvrés.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <div class="container">
+                <div class="cta-content animate-on-scroll">
+                    <h2>Prêt à créer votre serveur Discord&nbsp;?</h2>
+                    <p>Essayez ForgeBot et lancez votre communauté en quelques secondes.</p>
+                    <a href="generator.html" class="btn btn-primary btn-large">Créer mon serveur</a>
+                </div>
+            </div>
+        </section>
     </main>
+
     <footer>
         <div class="container">
-            <p>&copy; 2025 ForgeBot. Tous droits réservés.</p>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="url(#logo-gradient-footer)" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M2 17L12 22L22 17" stroke="url(#logo-gradient-footer)" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M2 12L12 17L22 12" stroke="url(#logo-gradient-footer)" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <defs>
+                                <linearGradient id="logo-gradient-footer" x1="2" y1="12" x2="22" y2="12"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#8A2BE2" />
+                                    <stop offset="1" stop-color="#4A90E2" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        ForgeBot
+                    </a>
+                    <p>Le bot Discord qui crée votre serveur avec l'IA.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Produit</h4>
+                    <ul>
+                        <li><a href="index.html#features">Fonctionnalités</a></li>
+                        <li><a href="index.html#how-it-works">Comment ça marche</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
+                        <li><a href="index.html#pricing">Tarifs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>À propos</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="mentions.html">Mentions légales</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ForgeBot. Tous droits réservés.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter"><i data-feather="twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i data-feather="linkedin"></i></a>
+                    <a href="#" aria-label="GitHub"><i data-feather="github"></i></a>
+                </div>
+            </div>
         </div>
     </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        feather.replace();
+    </script>
 </body>
 </html>
