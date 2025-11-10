@@ -18,6 +18,11 @@
 
 // Update this URL with the production payment link when deploying
 const PAYMENT_LINK_URL = 'https://buy.stripe.com/test_cNi4gz5EK9Agevn9Ii9EI00';
+// Initialisation Stripe côté front
+const stripe = typeof Stripe !== "undefined" && window.STRIPE_PUBLISHABLE_KEY
+  ? Stripe(window.STRIPE_PUBLISHABLE_KEY)
+  : null;
+
 
 document.getElementById('generator-form').addEventListener('submit', async function (e) {
     e.preventDefault();
@@ -47,7 +52,42 @@ document.getElementById('generator-form').addEventListener('submit', async funct
     // If not paid, redirect to the payment page and store description
     if (!paid) {
         sessionStorage.setItem('pendingDesc', desc);
-        window.location.href = PAYMENT_LINK_URL;
+
+        if (!stripe) {
+            console.error("Stripe n'est pas initialisé (clé publique manquante ?)");
+            return;
+        }
+
+        try {
+            // NUMOK : on récupère les métadatas de tracking côté front
+            const numokMetadata = window.numok
+                ? window.numok.getStripeMetadata()
+                : null;
+
+            const resp = await fetch("/api/createCheckoutSession", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    clientId,
+                    numokMetadata,
+                }),
+            });
+
+            if (!resp.ok) {
+                console.error("Erreur lors de la création de la session Stripe :", await resp.text());
+                return;
+            }
+
+            const { sessionId } = await resp.json();
+
+            const { error } = await stripe.redirectToCheckout({ sessionId });
+            if (error) {
+                console.error("Erreur Stripe Checkout :", error);
+            }
+        } catch (err) {
+            console.error("Erreur lors de la redirection vers Stripe :", err);
+        }
+
         return;
     }
 
