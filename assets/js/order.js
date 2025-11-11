@@ -83,7 +83,7 @@ document.getElementById('generator-form').addEventListener('submit', async funct
 
             debugger;
 
-            const { sessionId } = await resp.json();
+            const { sessionId } = data
 
             const { error } = await stripe.redirectToCheckout({ sessionId });
             if (error) {
