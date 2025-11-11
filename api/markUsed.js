@@ -6,9 +6,10 @@
 export default async function handler(req, res) {
   const { UPSTASH_URL, UPSTASH_TOKEN } = process.env;
   // Accept both GET and POST, but prefer POST
-  const clientId = req.method === "POST"
-    ? req.body?.clientId
-    : req.query?.clientId;
+  const clientId =
+    req.method === "POST"
+      ? (req.body && req.body.clientId)
+      : (req.query && req.query.clientId);
   if (!clientId) {
     return res.status(400).json({ error: "clientId manquant" });
   }

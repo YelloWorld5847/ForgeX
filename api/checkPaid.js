@@ -6,7 +6,9 @@
 
 export default async function handler(req, res) {
   // Extract clientId from query parameters (GET) or body (POST)
-  const clientId = req.query?.clientId || req.body?.clientId;
+  const clientId =
+    (req.query && req.query.clientId) ||
+    (req.body && req.body.clientId);
   if (!clientId) {
     return res.status(400).json({ error: "clientId manquant" });
   }
