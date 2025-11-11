@@ -63,7 +63,9 @@ document.getElementById('generator-form').addEventListener('submit', async funct
             const numokMetadata = window.numok
                 ? window.numok.getStripeMetadata()
                 : null;
-
+            
+            console.log("Numok metadata envoyée :", numokMetadata);
+            
             const resp = await fetch("/api/createCheckoutSession", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
