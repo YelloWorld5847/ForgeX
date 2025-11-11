@@ -77,6 +77,8 @@ document.getElementById('generator-form').addEventListener('submit', async funct
                 console.error("Erreur lors de la création de la session Stripe :", await resp.text());
                 return;
             }
+
+            debugger;
             
             const data = await resp.json();
             console.log("Réponse /api/createCheckoutSession :", data);
