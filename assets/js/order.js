@@ -78,10 +78,10 @@ document.getElementById('generator-form').addEventListener('submit', async funct
                 return;
             }
 
-            debugger;
-            
             const data = await resp.json();
             console.log("Réponse /api/createCheckoutSession :", data);
+
+            debugger;
 
             const { sessionId } = await resp.json();
 
